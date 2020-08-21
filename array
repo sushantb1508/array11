@@ -1,0 +1,22 @@
+def countzeros(arr,n):
+    l=0
+    r=n-1
+    while(l<=r):
+        mid=l+(r-l)//2
+        if arr[mid]!=arr[mid+1]:
+            return mid
+        else:
+            if arr[mid]>arr[l]:
+                r=mid
+            elif arr[mid]==arr[l]:
+                l=mid
+            elif arr[mid]<arr[r]:
+                l=mid
+            elif arr[mid]==arr[r]:
+                r=mid
+    return mid
+if __name__ == '__main__':
+    arr=[0,1,1,1,1,1]
+    n=len(arr)
+    result=countzeros(arr,n)
+    print(result+1)
